@@ -1,5 +1,14 @@
+require 'pry'
 class Hash
-  def keys_of(arguments)
-    # code goes here
+  def keys_of(*arguments)
+    matching_keys = []
+    self.each do |key, value|
+      arguments.each do |argument|
+        if value == argument
+          matching_keys << key
+        end
+      end
+    end
+    matching_keys
   end
 end
